@@ -17,7 +17,7 @@ async function start() {
 
     console.log("DB Ready");
   } catch (err) {
-    console.log("Errors connecting to database");
+    console.log("Error connecting to database");
     return process.exit(1);
   }
 
