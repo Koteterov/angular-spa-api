@@ -1,16 +1,20 @@
 const mongoose = require("mongoose");
 const express = require("express");
-const cookieParser = require("cookie-parser");
+require("dotenv").config();
 
+const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 const auth = require("./src/middlewares/auth");
 const wineController = require("./src/controllers/wine");
 const usersController = require("./src/controllers/users");
 
+const port = process.env.PORT;
+const connectionString = process.env.DB_HOST;
+
 async function start() {
   try {
-    const db = await mongoose.connect("mongodb://127.0.0.1:27017/angularWine", {
+    await mongoose.connect(connectionString, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -38,7 +42,7 @@ async function start() {
   app.use("/data/catalog", wineController);
   app.use("/users", usersController);
 
-  app.listen(3030, () => console.log("REST Service started on port 3030"));
+  app.listen(port, () => console.log(`REST Service started on port ${port}`));
 }
 
 start();
