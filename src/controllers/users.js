@@ -17,7 +17,7 @@ router.post("/register", async (req, res) => {
     const result = await api.register(firstName, lastName, email, password);
     const token = result.accessToken
     
-    res.cookie(SESSION_NAME, token, { httpOnly: true })
+    res.cookie(SESSION_NAME, token, { httpOnly: true, sameSite: 'none', secure: true })
     res.status(201).json(result);
 
   } catch (err) {
@@ -34,7 +34,7 @@ router.post("/login", async (req, res) => {
     const result = await api.login(email, password);
     const token = result.accessToken
     
-    res.cookie(SESSION_NAME, token, { httpOnly: true })
+    res.cookie(SESSION_NAME, token, { httpOnly: true, sameSite: 'none', secure: true })
 
     res.json(result);
 
