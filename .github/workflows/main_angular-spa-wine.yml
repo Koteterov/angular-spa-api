@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'angular-spa-wine'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7E54B855EB3F4C1895885835589FC97C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FCF52EC263CC40DA8A10C594BDB9A0D6 }}
           package: .
