@@ -53,12 +53,7 @@ router.post("/logout", (req, res) => {
   try {
     api.logout(req.user?.token);
 
-    res.clearCookie(SESSION_NAME, {
-      httpOnly: true,
-      sameSite: "none",
-      secure: true,
-      maxAge: 24 * 60 * 60 * 1000,
-    });
+    res.clearCookie(SESSION_NAME);
 
     res.status(204).end();
   } catch (err) {
