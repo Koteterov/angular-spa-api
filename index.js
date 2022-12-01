@@ -38,7 +38,8 @@ async function start() {
     })
   );
 
-  app.set("trust proxy", 1);
+  // app.set("trust proxy", 1);
+  app.enable("trust proxy");
 
   app.use(auth());
 
