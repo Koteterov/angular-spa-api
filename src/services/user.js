@@ -57,7 +57,7 @@ async function getProfileInfo(userId) {
 
 
 function logout(token) {
-  blacklist.add(token);
+  // blacklist.add(token);
 }
 
 function createSession(user) {
