@@ -31,6 +31,7 @@ async function start() {
   app.use(cookieParser());
 
   app.use(express.json());
+  app.set("trust proxy", 1);
   app.use(
     cors({
       origin: ["http://localhost:4200", "https://angular-project-wine.web.app"],
