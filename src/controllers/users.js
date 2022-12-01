@@ -3,6 +3,7 @@ const api = require("../services/user");
 const validator = require("validator");
 
 const { SESSION_NAME } = require("../config/constants");
+const { isAuth } = require("../middlewares/guards");
 
 router.post("/register", async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
@@ -63,7 +64,7 @@ router.post("/logout", (req, res) => {
   }
 });
 
-router.get("/profile", async (req, res) => {
+router.get("/profile", isAuth(), async (req, res) => {
   try {
     const result = await api.getProfileInfo(req.user._id);
 
