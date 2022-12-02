@@ -33,7 +33,11 @@ async function start() {
   app.use(express.json());
   app.use(
     cors({
-      origin: ["http://localhost:4200", "https://angular-project-wine.web.app"],
+      origin: [
+        "http://localhost:4200",
+        "https://angular-project-wine.web.app",
+        "https://koteterov.github.io/angular-spa/",
+      ],
       credentials: true,
     })
   );
