@@ -36,7 +36,7 @@ async function start() {
       origin: [
         "http://localhost:4200",
         "https://angular-project-wine.web.app",
-        "https://koteterov.github.io/angular-spa/",
+        "https://koteterov.github.io/angular-spa/spa-wine",
       ],
       credentials: true,
     })
