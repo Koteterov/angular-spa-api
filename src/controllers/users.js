@@ -43,6 +43,7 @@ router.post("/login", async (req, res) => {
       httpOnly: true,
       sameSite: "none",
       secure: true,
+      maxAge: oneDay,
       // domain: "angular-spa-api.onrender.com",
     });
 
@@ -61,7 +62,7 @@ router.post("/logout", (req, res) => {
       httpOnly: true,
       sameSite: "none",
       secure: true,
-      maxAge: oneDay,
+      maxAge: 0,
       // domain: "angular-spa-api.onrender.com",
     });
 
