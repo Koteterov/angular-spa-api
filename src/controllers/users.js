@@ -15,11 +15,16 @@ router.post("/register", async (req, res) => {
 
     const result = await api.register(firstName, lastName, email, password);
     const token = result.accessToken;
+    const oneDay = 24 * 60 * 60 * 1000
+
 
     res.cookie(SESSION_NAME, token, {
       httpOnly: true,
       sameSite: "none",
       secure: true,
+      maxAge: oneDay,
+      domain: "https://angular-project-wine.web.app",
+      
     });
     res.status(201).json(result);
   } catch (err) {
@@ -34,12 +39,14 @@ router.post("/login", async (req, res) => {
   try {
     const result = await api.login(email, password);
     const token = result.accessToken;
+    const oneDay = 24 * 60 * 60 * 1000
 
     res.cookie(SESSION_NAME, token, {
       httpOnly: true,
       sameSite: "none",
       secure: true,
-      maxAge: 24 * 60 * 60 * 1000,
+      maxAge: oneDay,
+      domain: "https://angular-project-wine.web.app",
     });
 
     res.json(result);
