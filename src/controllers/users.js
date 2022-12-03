@@ -15,7 +15,7 @@ router.post("/register", async (req, res) => {
 
     const result = await api.register(firstName, lastName, email, password);
     const token = result.accessToken;
-    const oneDay = 24 * 60 * 60 * 1000
+        const oneDay = 24 * 60 * 60 * 1000
 
 
     res.cookie(SESSION_NAME, token, {
@@ -23,7 +23,7 @@ router.post("/register", async (req, res) => {
       sameSite: "none",
       secure: true,
       maxAge: oneDay,
-      domain: "https://angular-spa-api.onrender.com",
+      domain: "angular-project-wine.web.app",
       
     });
     res.status(201).json(result);
@@ -46,7 +46,7 @@ router.post("/login", async (req, res) => {
       sameSite: "none",
       secure: true,
       maxAge: oneDay,
-      domain: "https://angular-spa-api.onrender.com",
+      domain: "angular-project-wine.web.app",
     });
 
     res.json(result);
