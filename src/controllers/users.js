@@ -22,7 +22,7 @@ router.post("/register", async (req, res) => {
       sameSite: "none",
       secure: true,
       maxAge: oneDay,
-      // domain: "angular-spa-api.onrender.com",
+      domain: "angular-spa-api.onrender.com",
     });
     res.status(201).json(result);
   } catch (err) {
@@ -43,9 +43,8 @@ router.post("/login", async (req, res) => {
       httpOnly: true,
       sameSite: "none",
       secure: true,
-      maxAge: 10000,
-      // maxAge: oneDay,
-      // domain: "angular-spa-api.onrender.com",
+      maxAge: oneDay,
+      domain: "angular-spa-api.onrender.com",
     });
 
     res.json(result);
