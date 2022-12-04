@@ -58,7 +58,13 @@ router.post("/logout", (req, res) => {
   try {
     api.logout(req.user?.token);
 
-    res.clearCookie(SESSION_NAME);
+    res.clearCookie(SESSION_NAME, {
+      httpOnly: true,
+      sameSite: "none",
+      secure: true,
+      maxAge: 0,
+      // domain: "angular-spa-api.onrender.com",
+    });
 
     res.status(204).end();
   } catch (err) {
