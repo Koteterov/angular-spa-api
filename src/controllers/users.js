@@ -22,7 +22,6 @@ router.post("/register", async (req, res) => {
       sameSite: "none",
       secure: true,
       maxAge: oneDay,
-      path: '/'
       // domain: "angular-spa-api.onrender.com",
     });
     res.status(201).json(result);
@@ -45,7 +44,6 @@ router.post("/login", async (req, res) => {
       sameSite: "none",
       secure: true,
       maxAge: oneDay,
-      path: '/'
       // domain: "angular-spa-api.onrender.com",
     });
 
